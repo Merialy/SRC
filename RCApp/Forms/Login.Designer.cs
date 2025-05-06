@@ -97,9 +97,9 @@
             label3.Location = new Point(20, 0);
             label3.Name = "label3";
             label3.Padding = new Padding(60, 20, 0, 0);
-            label3.Size = new Size(186, 46);
+            label3.Size = new Size(189, 46);
             label3.TabIndex = 0;
-            label3.Text = "Увійти в RaC";
+            label3.Text = "Увійти в SRC";
             // 
             // btn_login
             // 
