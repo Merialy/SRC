@@ -37,6 +37,47 @@ namespace RCLibrary
             return false;
         }
 
+        public static bool IsEmailAvailable(string email)
+        {
+            return UserSystem.Users.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public static bool ResetPassword(string email, string newPassword)
+        {
+            // Знаходимо користувача в головному списку
+            UserSystem? user = UserSystem.Users.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+
+            if (user == null)
+            {
+                return false; // Користувача не знайдено
+            }
+            // Встановлюємо новий пароль
+            user.Password = newPassword;
+
+            // Оновлюємо в конкретному списку за роллю
+            switch (user.TypeClass)
+            {
+                case "Адміністратор":
+                    var admin = Administrator.Administrators.FirstOrDefault(a => a.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+                    if (admin != null) { admin.Password = newPassword; admin.Serialize(); }
+                    break;
+
+                case "Менеджер":
+                    var manager = Manager.Managers.FirstOrDefault(m => m.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+                    if (manager != null) { manager.Password = newPassword; manager.Serialize(); }
+                    break;
+
+                case "Клієнт":
+                    var client = Client.Clients.FirstOrDefault(c => c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+                    if (client != null) { client.Password = newPassword; client.Serialize(); }
+                    break;
+            }
+
+            // Зберігаємо зміни
+            user.Serialize();
+            return true;
+        }
+
         public override bool Serialize()
         {
             string jsonstring = "";

@@ -31,7 +31,7 @@ namespace RCApp
         private void ManagerMode()
         {
             ToolStripMI_admins.Visible = false;
-            ToolStripMI_managers.Visible = false; 
+            ToolStripMI_managers.Visible = false;
             OpenChildControl(new TableFreeCars());
             statusBar_user.Text = UserSystem.activeUser.ToString() + " (Менеджер)";
         }
@@ -149,6 +149,14 @@ namespace RCApp
         private void AboutMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ToolStripMI_Exit_Click(object sender, EventArgs e)
+        {
+            //MainForm f = new();
+            //f.Show();
+            this.Hide();
+            new Login().ShowDialog();
         }
     }
 }

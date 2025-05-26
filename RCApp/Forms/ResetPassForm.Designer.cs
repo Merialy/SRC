@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPassForm));
             panel1 = new Panel();
+            ctb_newPass = new RCInterface.Controls.CustomTextBox();
             btn_changePass = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -39,7 +40,6 @@
             label = new Label();
             btn_confirmCode = new Button();
             btn_SendCode = new Button();
-            ctb_newPass = new RCInterface.Controls.CustomTextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,6 +60,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(289, 500);
             panel1.TabIndex = 0;
+            // 
+            // ctb_newPass
+            // 
+            ctb_newPass.BackColor = Color.White;
+            ctb_newPass.customBackColor = Color.White;
+            ctb_newPass.customForeColor = Color.Black;
+            ctb_newPass.customLabel = "Новий пароль";
+            ctb_newPass.customMultiline = false;
+            ctb_newPass.customText = "";
+            ctb_newPass.Location = new Point(12, 294);
+            ctb_newPass.Name = "ctb_newPass";
+            ctb_newPass.Padding = new Padding(3);
+            ctb_newPass.Password = false;
+            ctb_newPass.Size = new Size(265, 44);
+            ctb_newPass.TabIndex = 20;
             // 
             // btn_changePass
             // 
@@ -139,9 +154,9 @@
             label.ForeColor = Color.FromArgb(0, 192, 0);
             label.Location = new Point(12, 276);
             label.Name = "label";
-            label.Size = new Size(91, 15);
+            label.Size = new Size(87, 15);
             label.TabIndex = 13;
-            label.Text = "✅ Верный код!";
+            label.Text = "✅ Вірний код!";
             // 
             // btn_confirmCode
             // 
@@ -162,21 +177,6 @@
             btn_SendCode.Text = "Скинути пароль";
             btn_SendCode.UseVisualStyleBackColor = true;
             btn_SendCode.Click += btn_SendCode_Click;
-            // 
-            // ctb_newPass
-            // 
-            ctb_newPass.BackColor = Color.White;
-            ctb_newPass.customBackColor = Color.White;
-            ctb_newPass.customForeColor = Color.Black;
-            ctb_newPass.customLabel = "Новий пароль";
-            ctb_newPass.customMultiline = false;
-            ctb_newPass.customText = "";
-            ctb_newPass.Location = new Point(12, 294);
-            ctb_newPass.Name = "ctb_newPass";
-            ctb_newPass.Padding = new Padding(3);
-            ctb_newPass.Password = false;
-            ctb_newPass.Size = new Size(265, 44);
-            ctb_newPass.TabIndex = 20;
             // 
             // ResetPassForm
             // 

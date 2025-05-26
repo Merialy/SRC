@@ -44,13 +44,14 @@
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             statusBar_user = new ToolStripStatusLabel();
             panel_info = new Panel();
+            ToolStripMI_Exit = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ToolStripMI_menu, таблицыToolStripMenuItem, справкаToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ToolStripMI_menu, таблицыToolStripMenuItem, справкаToolStripMenuItem, ToolStripMI_Exit });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(796, 24);
@@ -74,35 +75,35 @@
             // ToolStripMI_autos
             // 
             ToolStripMI_autos.Name = "ToolStripMI_autos";
-            ToolStripMI_autos.Size = new Size(160, 22);
+            ToolStripMI_autos.Size = new Size(180, 22);
             ToolStripMI_autos.Text = "Автомобили";
             ToolStripMI_autos.Click += ToolStripMI_autos_Click;
             // 
             // ToolStripMI_admins
             // 
             ToolStripMI_admins.Name = "ToolStripMI_admins";
-            ToolStripMI_admins.Size = new Size(160, 22);
+            ToolStripMI_admins.Size = new Size(180, 22);
             ToolStripMI_admins.Text = "Адміністратори";
             ToolStripMI_admins.Click += ToolStripMI_admins_Click;
             // 
             // договорыToolStripMenuItem
             // 
             договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
-            договорыToolStripMenuItem.Size = new Size(160, 22);
+            договорыToolStripMenuItem.Size = new Size(180, 22);
             договорыToolStripMenuItem.Text = "Договори";
             договорыToolStripMenuItem.Click += ContractsToolStripMenuItem_Click;
             // 
             // ToolStripMI_clients
             // 
             ToolStripMI_clients.Name = "ToolStripMI_clients";
-            ToolStripMI_clients.Size = new Size(160, 22);
+            ToolStripMI_clients.Size = new Size(180, 22);
             ToolStripMI_clients.Text = "Клієнти";
             ToolStripMI_clients.Click += ToolStripMI_clients_Click;
             // 
             // ToolStripMI_managers
             // 
             ToolStripMI_managers.Name = "ToolStripMI_managers";
-            ToolStripMI_managers.Size = new Size(160, 22);
+            ToolStripMI_managers.Size = new Size(180, 22);
             ToolStripMI_managers.Text = "Менеджери";
             ToolStripMI_managers.Click += ToolStripMI_managers_Click;
             // 
@@ -116,7 +117,7 @@
             // оРазработчикеToolStripMenuItem
             // 
             оРазработчикеToolStripMenuItem.Name = "оРазработчикеToolStripMenuItem";
-            оРазработчикеToolStripMenuItem.Size = new Size(166, 22);
+            оРазработчикеToolStripMenuItem.Size = new Size(180, 22);
             оРазработчикеToolStripMenuItem.Text = "Про розробника";
             оРазработчикеToolStripMenuItem.Click += AboutMeToolStripMenuItem_Click;
             // 
@@ -156,6 +157,13 @@
             panel_info.Name = "panel_info";
             panel_info.Size = new Size(796, 421);
             panel_info.TabIndex = 2;
+            // 
+            // ToolStripMI_Exit
+            // 
+            ToolStripMI_Exit.Name = "ToolStripMI_Exit";
+            ToolStripMI_Exit.Size = new Size(48, 20);
+            ToolStripMI_Exit.Text = "Вихід";
+            ToolStripMI_Exit.Click += ToolStripMI_Exit_Click;
             // 
             // MainForm
             // 
@@ -197,5 +205,6 @@
         private ToolStripStatusLabel statusBar_user;
         private ToolStripMenuItem справкаToolStripMenuItem;
         private ToolStripMenuItem оРазработчикеToolStripMenuItem;
+        private ToolStripMenuItem ToolStripMI_Exit;
     }
 }

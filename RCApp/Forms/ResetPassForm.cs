@@ -1,4 +1,5 @@
-﻿
+﻿using RCLibrary;
+
 namespace RCApp
 {
     public partial class ResetPassForm : Form
@@ -10,22 +11,31 @@ namespace RCApp
             btn_SendCode.Location = new Point(12, 165);
         }
 
-        private string _currentCode; // Храним текущий код
-        private DateTime _codeExpirationTime; // Время истечения
+        private string _currentCode; // Зберігаємо поточний код
+        private DateTime _codeExpirationTime; // Час закінчення
+        private string _email;
 
         private void btn_SendCode_Click(object sender, EventArgs e)
         {
-            btn_SendCode.Visible = false;
-            btn_confirmCode.Location = btn_SendCode.Location;
+            _email = ctb_Email.customText;
+            if (UserSystem.IsEmailAvailable(_email))
+            {
+                btn_SendCode.Visible = false;
+                btn_confirmCode.Location = btn_SendCode.Location;
 
-            label2.Location = new Point(12, 76);
-            label2.Text = $"Код підтвердження надіслано на пошту \n{ctb_Email.customText}";
-            ctb_Email.Visible = false;
-            tb_userCode.Location = ctb_Email.Location;
+                label2.Location = new Point(12, 76);
+                label2.Text = $"Код підтвердження надіслано на пошту \n{ctb_Email.customText}";
+                ctb_Email.Visible = false;
+                tb_userCode.Location = ctb_Email.Location;
 
-            _currentCode = GenerateCode(); // Генерируем код
-            _codeExpirationTime = DateTime.Now.AddMinutes(2); // Действует 2 минуты
-            SaveCodeInfoToFile();
+                _currentCode = GenerateCode(); // Генеруємо код
+                _codeExpirationTime = DateTime.Now.AddMinutes(2); // Діє 2 хвилини
+                SaveCodeInfoToFile();
+            }
+            else
+            {
+                MessageBox.Show("Такої електронної пошти у системі немає!", "Попередження", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void Btn_CheckCode_Click(object sender, EventArgs e)
@@ -40,7 +50,7 @@ namespace RCApp
             {
                 SetSize(305, 353);
                 label.ForeColor = Color.FromArgb(0, 192, 0);
-                label.Text = "✅ Верный код!";
+                label.Text = "✅ Вірний код!";
                 tb_userCode.Enabled = false;
                 btn_confirmCode.Visible = false;
 
@@ -57,8 +67,9 @@ namespace RCApp
 
         private void SaveCodeInfoToFile()
         {
-            string message = $"Код: {_currentCode} (действует до {_codeExpirationTime:T})";
+            string message = $"Код: {_currentCode} (діє до {_codeExpirationTime:T})";
             File.WriteAllText("code.txt", message);
+            System.Diagnostics.Process.Start("notepad.exe", "code.txt");
         }
 
         private string GenerateCode()
@@ -72,14 +83,28 @@ namespace RCApp
 
         private bool IsCodeValid(string input)
         {
-            // Проверяем:
-            // 1. Что код совпадает
-            // 2. Что время не истекло
+            // Перевіряємо:
+            // 1. Що код збігається
+            // 2. Що час не минув
             return input == _currentCode && DateTime.Now <= _codeExpirationTime;
         }
 
         private void btn_changePass_Click(object sender, EventArgs e)
         {
+            string newPass = ctb_newPass.customText;
+            try
+            {
+                UserSystem.ResetPassword(_email, newPass);
+
+
+                DialogResult dialogResult = MessageBox.Show("Пароль змінено!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                    Close();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Попередження", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 

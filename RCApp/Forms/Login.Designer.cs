@@ -176,6 +176,7 @@
             Padding = new Padding(7);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Авторизація";
+            FormClosing += Login_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

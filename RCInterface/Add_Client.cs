@@ -1,17 +1,8 @@
 ﻿using RCLibrary.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RCInterface
 {
-    //ToDo #5.5.1 Форма для добавления нового клиента +
+    //ToDo #5.5.1 Форма для додавання нового клієнта
     public partial class Add_Client : Form
     {
         private Manager manager = new();
