@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
+            pictureBox_Hide = new PictureBox();
             linkLabel = new LinkLabel();
             label2 = new Label();
             mtb_password = new MaskedTextBox();
@@ -40,10 +41,12 @@
             textBox_email = new TextBox();
             btn_sign_up = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Hide).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox_Hide);
             panel1.Controls.Add(linkLabel);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(mtb_password);
@@ -59,6 +62,17 @@
             panel1.Padding = new Padding(20, 0, 20, 20);
             panel1.Size = new Size(285, 312);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox_Hide
+            // 
+            pictureBox_Hide.Image = Properties.Resources.free_icon_hide_2767146;
+            pictureBox_Hide.Location = new Point(241, 143);
+            pictureBox_Hide.Name = "pictureBox_Hide";
+            pictureBox_Hide.Size = new Size(15, 26);
+            pictureBox_Hide.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox_Hide.TabIndex = 12;
+            pictureBox_Hide.TabStop = false;
+            pictureBox_Hide.Click += pictureBox_Hide_Click;
             // 
             // linkLabel
             // 
@@ -86,6 +100,7 @@
             mtb_password.Font = new Font("Comic Sans MS", 9.75F);
             mtb_password.Location = new Point(41, 143);
             mtb_password.Name = "mtb_password";
+            mtb_password.PasswordChar = '*';
             mtb_password.Size = new Size(200, 26);
             mtb_password.TabIndex = 2;
             // 
@@ -179,6 +194,7 @@
             FormClosing += Login_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Hide).EndInit();
             ResumeLayout(false);
         }
 
@@ -194,5 +210,6 @@
         protected TextBox textBox_email;
         private Button btn_sign_up;
         private LinkLabel linkLabel;
+        private PictureBox pictureBox_Hide;
     }
 }

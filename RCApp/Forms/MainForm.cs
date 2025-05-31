@@ -153,10 +153,17 @@ namespace RCApp
 
         private void ToolStripMI_Exit_Click(object sender, EventArgs e)
         {
-            //MainForm f = new();
-            //f.Show();
-            this.Hide();
-            new Login().ShowDialog();
+            /*this.Hide();
+            new Login().ShowDialog();*/
+
+            this.Hide(); // Скрываем текущую форму
+
+            using (Login loginForm = new Login())
+            {
+                this.Visible = false;
+                DialogResult result = loginForm.ShowDialog();
+                this.Close(); // Закрываем текущую форму
+            }
         }
     }
 }
