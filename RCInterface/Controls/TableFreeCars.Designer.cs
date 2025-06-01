@@ -42,6 +42,8 @@
             toolStripLabel1 = new ToolStripLabel();
             textBox_search = new ToolStripTextBox();
             panel1 = new Panel();
+            statusStrip1 = new StatusStrip();
+            tssl_1 = new ToolStripStatusLabel();
             panel2 = new Panel();
             btn_next = new Button();
             endDateTimePicker = new DateTimePicker();
@@ -52,12 +54,14 @@
             ((System.ComponentModel.ISupportInitialize)freeCarsBindingSource).BeginInit();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = Color.Gainsboro;
             dataGridView1.BorderStyle = BorderStyle.None;
@@ -73,7 +77,8 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(780, 393);
             dataGridView1.TabIndex = 0;
-            dataGridView1.DataError += dataGridView1_DataError;
+            dataGridView1.DataError += DataGridView1_DataError;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -155,10 +160,11 @@
             // 
             textBox_search.Name = "textBox_search";
             textBox_search.Size = new Size(100, 25);
-            textBox_search.KeyUp += textBox_search_KeyUp;
+            textBox_search.KeyUp += TextBox_search_KeyUp;
             // 
             // panel1
             // 
+            panel1.Controls.Add(statusStrip1);
             panel1.Controls.Add(dataGridView1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 57);
@@ -166,6 +172,22 @@
             panel1.Padding = new Padding(10, 0, 10, 0);
             panel1.Size = new Size(800, 393);
             panel1.TabIndex = 4;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tssl_1 });
+            statusStrip1.Location = new Point(10, 371);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.RightToLeft = RightToLeft.Yes;
+            statusStrip1.Size = new Size(780, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // tssl_1
+            // 
+            tssl_1.Name = "tssl_1";
+            tssl_1.Size = new Size(69, 17);
+            tssl_1.Text = "Rental price";
             // 
             // panel2
             // 
@@ -187,9 +209,10 @@
             btn_next.Name = "btn_next";
             btn_next.Size = new Size(135, 27);
             btn_next.TabIndex = 5;
-            btn_next.Text = "Далі";
+            btn_next.Text = "Орендувати";
             btn_next.UseVisualStyleBackColor = true;
             btn_next.Visible = false;
+            btn_next.Click += Btn_next_Click;
             // 
             // endDateTimePicker
             // 
@@ -199,7 +222,7 @@
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(106, 25);
             endDateTimePicker.TabIndex = 4;
-            endDateTimePicker.ValueChanged += endDateTimePicker_ValueChanged;
+            endDateTimePicker.ValueChanged += EndDateTimePicker_ValueChanged;
             // 
             // label2
             // 
@@ -219,7 +242,7 @@
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(106, 25);
             startDateTimePicker.TabIndex = 2;
-            startDateTimePicker.ValueChanged += startDateTimePicker_ValueChanged;
+            startDateTimePicker.ValueChanged += StartDateTimePicker_ValueChanged;
             // 
             // label1
             // 
@@ -246,6 +269,9 @@
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -273,5 +299,7 @@
         private DataGridViewTextBoxColumn acolorDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dailyPriceDataGridViewTextBoxColumn;
         private Button btn_next;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel tssl_1;
     }
 }

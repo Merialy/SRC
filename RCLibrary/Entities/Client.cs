@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace RCLibrary.Entities
 {
+    //ToDo #2.7 Клас для клієнта.
     public class Client : UserSystem, IClient
     {
         private static List<Client> clients = new();
@@ -45,11 +46,11 @@ namespace RCLibrary.Entities
         public bool Register(Client newClient)
         {
             newClient.TypeClass = "Клієнт";
-            // Проверка, что пользователь с таким же email еще не зарегистрирован
+            // Перевірка, що користувач з таким же e-mail ще не зареєстрований
             if (Users.Any(u => u.Email == newClient.Email))
                 return false;
 
-            // Добавление нового пользователя в список
+            // Додавання нового користувача до списку
             Users.Add(newClient);
             clients.Add(newClient);
             return true;
@@ -58,31 +59,6 @@ namespace RCLibrary.Entities
         public bool RentCar(Auto auto)
         {
             throw new NotImplementedException();
-
-            /*if (auto == null)
-                throw new ArgumentNullException("Автомобіль не може бути null.");
-
-            // Знаходимо договір, пов'язаний з цим авто та клієнтом
-            var contract = Contract.Contracts.FirstOrDefault(c => c.Car.Id == auto.Id && c.Renter.Email == this.Email);
-            if (contract == null)
-                throw new ArgumentException("Договір оренди для цього авто не знайдено.");
-
-            // Оновлюємо статус авто на "вільний"
-            auto.Status = CarStatus.Available; // Додайте поле Status у клас Auto
-
-            // Додаємо оренду в історію (якщо є клас RentalHistory)
-            RentalHistory.Add(new RentalHistoryEntry
-            {
-                Car = auto,
-                Client = this,
-                StartDate = contract.StartDate,
-                EndDate = DateTime.Now
-            });
-
-            // Видаляємо договір з активних
-            Contract.Contracts.Remove(contract);
-
-            return true;*/
         }
 
         public bool ReturnCar(Auto auto)

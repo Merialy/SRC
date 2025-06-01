@@ -4,6 +4,7 @@ using System.Text.Json;
 
 namespace RCLibrary.Entities
 {
+    //ToDo #2.8 Клас договор +
     public class Contract : IFile
     {
         private static List<Contract> contracts = new();
@@ -80,7 +81,7 @@ namespace RCLibrary.Entities
                 if (endDate < startDate)
                     rentalPrice = 0;
                 else 
-                    rentalPrice = (int)(endDate - startDate).TotalDays * car?.DailyPrice;
+                    rentalPrice = ((int)(endDate - startDate).TotalDays + 1) * car?.DailyPrice;
                 return rentalPrice;
             }
         }

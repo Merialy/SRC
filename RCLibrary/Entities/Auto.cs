@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace RCLibrary.Entities
 {
-    //ToDo #2.5 Клас автомобиль +
+    //ToDo #2.5 Клас автомобіль +
     public class Auto : IFile
     {
         private static List<Auto> autos = new();

@@ -3,13 +3,13 @@ using System.Text.Json;
 
 namespace RCLibrary.Entities
 {
-    // ToDo #2.4 Класс для администратора. +
+    // ToDo #2.4 Клас для адміністратора. +
     public class Administrator : Manager, IAdministrator
     {
         private static List<Administrator> administrators = new();
         public static List<Administrator> Administrators { get => administrators; }
 
-        // Добавление менеджера +
+        // Додавання менеджера +
         public bool AddManager(Manager newManager)
         {
             newManager.TypeClass = "Менеджер";
@@ -23,14 +23,14 @@ namespace RCLibrary.Entities
             return false;
         }
 
-        // Удаление менеджера +
+        // Видалення менеджера +
         public bool RemoveManager(int value)
         {
             Managers.RemoveAt(value);
             return true;
         }
 
-        // Добавление администратора +
+        // Додавання адміністратора +
         public bool AddAdmin(Administrator newAdmin)
         {
             newAdmin.TypeClass = "Адміністратор";
@@ -44,7 +44,7 @@ namespace RCLibrary.Entities
             return false;
         }
 
-        // Удаление администратора +
+        // Видалення администратора +
         public bool RemoveAdmin(int value)
         {
             administrators.RemoveAt(value);

@@ -3,7 +3,7 @@ using RCLibrary.Entities;
 
 namespace RCLibrary.Interfaces
 {
-    //ToDo #1.3 Интерфейс для администратора. +
+    //ToDo #1.3 Інтерфейс для адміністратора. +
     public interface IAdministrator : IManager
     {
         bool AddManager(Manager manager);

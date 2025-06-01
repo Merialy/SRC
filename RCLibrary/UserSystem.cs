@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace RCLibrary
 {
-    //ToDo #2.2 Класс для всех пользователей системы. +
+    //ToDo #2.2 Клас для всіх користувачів системи. +
     public class UserSystem : Entities.User
     {
         private static List<UserSystem> users = new();
@@ -13,21 +13,21 @@ namespace RCLibrary
 
         public bool Register(UserSystem user)
         {
-            // Проверка, что пользователь с таким же email еще не зарегистрирован
+            // Перевірка, що користувач з таким же e-mail ще не зареєстрований
             if (users.Any(u => u.Email == user.Email))
                 return false;
 
-            // Добавление нового пользователя в список
+            // Додавання нового користувача до списку
             users.Add(user);
             return true;
         }
 
         public bool Authenticate(string email, string password)
         {
-            // Поиск пользователя по email и паролю
+            // Пошук користувача по email та паролю
             UserSystem? user = users.FirstOrDefault(u => u.Email == email && u.Password == password);
 
-            // Если пользователь найден, то вход выполнен успешно
+            // Якщо користувач знайдено, то вхід виконано успішно
             if (user != null)
             {
                 activeUser = user;

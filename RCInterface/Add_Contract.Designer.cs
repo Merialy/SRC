@@ -90,7 +90,7 @@
             button_Add.TabIndex = 0;
             button_Add.Text = "Додати договір";
             button_Add.UseVisualStyleBackColor = false;
-            button_Add.Click += button_Add_Click;
+            button_Add.Click += Button_Add_Click;
             // 
             // freeCarsBindingSource
             // 

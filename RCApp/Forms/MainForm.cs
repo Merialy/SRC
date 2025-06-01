@@ -39,17 +39,19 @@ namespace RCApp
         private void ClientMode()
         {
             таблицыToolStripMenuItem.Visible = false;
-            OpenChildControl(new TableFreeCars());
+            TableFreeCars mainMenuClient = new TableFreeCars();
+            OpenChildControl(mainMenuClient);
+            mainMenuClient.EnableBtnNext = true;
             statusBar_user.Text = UserSystem.activeUser.ToString();
         }
 
         private UserControl? activeControl = null;
-        // Метод для открытия UserControl на панели
+        // Метод для відкриття UserControl на панелі
         private void OpenChildControl(UserControl childControl)
         {
             if (activeControl != null && activeControl.GetType() == childControl.GetType())
             {
-                // UserControl уже открыт, просто активируем его
+                // UserControl вже відкрито, просто активуємо його
                 activeControl.Focus();
                 return;
             }
@@ -153,16 +155,13 @@ namespace RCApp
 
         private void ToolStripMI_Exit_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
-            new Login().ShowDialog();*/
-
-            this.Hide(); // Скрываем текущую форму
+            this.Hide(); // Приховуємо поточну форму
 
             using (Login loginForm = new Login())
             {
                 this.Visible = false;
                 DialogResult result = loginForm.ShowDialog();
-                this.Close(); // Закрываем текущую форму
+                this.Close(); // Закриваємо поточну форму
             }
         }
     }

@@ -6,21 +6,21 @@ namespace RCInterface
     //ToDo #5.6 Форма для добавления нового договора +
     public partial class Add_Contract : Form
     {
-        private Manager manager = new Manager();
+        private Manager manager = new();
         public Add_Contract()
         {
             InitializeComponent();
         }
 
-        private void button_Add_Click(object sender, EventArgs e)
+        private void Button_Add_Click(object sender, EventArgs e)
         {
             try
             {
-                // Поиск пользователя по email
+                // Пошук користувача по email
                 Manager? activeManager = Manager.Managers.FirstOrDefault(u => u.Email == UserSystem.activeUser.Email);
                 Administrator? activeAdmin = Administrator.Administrators.FirstOrDefault(u => u.Email == UserSystem.activeUser.Email);
 
-                RCLibrary.Entities.Contract contract = new RCLibrary.Entities.Contract();
+                Contract contract = new Contract();
                 contract.Car = tableFreeCars1.SelectedAuto;
                 contract.Renter = tableClients1.SelectedClient;
                 if (activeManager != null)

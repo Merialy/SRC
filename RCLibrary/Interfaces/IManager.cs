@@ -3,7 +3,7 @@ using RCLibrary.Entities;
 
 namespace RCLibrary.Interfaces
 {
-    //ToDo #1.2 Интерфейс для менеджера. +
+    //ToDo #1.2 Інтерфейс менеджера. +
     public interface IManager
     {
         bool AddCar(Auto car);

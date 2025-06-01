@@ -4,7 +4,7 @@ using RCLibrary.Interfaces;
 
 namespace RCLibrary.Entities
 {
-    //ToDo #2.1 Абстрактный класс для пользователей системы. +
+    //ToDo #2.1 Абстрактний клас для користувачів системи. +
     public abstract class User : IFile
     {
         private string email = string.Empty;

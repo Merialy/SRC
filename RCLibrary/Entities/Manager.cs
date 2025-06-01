@@ -1,10 +1,9 @@
 ﻿using RCLibrary.Interfaces;
-using System.Diagnostics.Contracts;
 using System.Text.Json;
 
 namespace RCLibrary.Entities
 {
-    //ToDo #2.3 Класс для менеджера. +
+    //ToDo #2.3 Клас для менеджера.
     public class Manager : UserSystem, IManager
     {
         private static List<Manager> managers = new();
