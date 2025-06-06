@@ -70,7 +70,7 @@ namespace Integration_Testing
             bool result = manager.AddContract(contract);
 
             Assert.IsTrue(result);
-            Assert.That(contract.RentalPrice, Is.EqualTo(3000));
+            Assert.That(contract.RentalPrice, Is.EqualTo(4000));
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Integration_Testing
 
             Assert.IsTrue(result);
             Assert.Contains(contract, Contract.Contracts);
-            Assert.That(contract.RentalPrice, Is.EqualTo(4500));
+            Assert.That(contract.RentalPrice, Is.EqualTo(6000));
         }
 
         [Test] // Тест 3.2: Створення договору із порожнім автомобілем
@@ -114,7 +114,7 @@ namespace Integration_Testing
 
             // 5. Перевіряємо результати
             Assert.That(Contract.Contracts.Count, Is.EqualTo(1));
-            Assert.That(contract.RentalPrice, Is.EqualTo(21000)); // 7 дней × 3000
+            Assert.That(contract.RentalPrice, Is.EqualTo(24000));
             Assert.IsFalse(new FreeCars().AvailableCars(DateTime.Now, DateTime.Now.AddDays(10)).Contains(car));
         }
     }

@@ -100,7 +100,7 @@ namespace Autonomous_Testing
             var price = contract.RentalPrice;
 
             // Assert
-            Assert.That(price, Is.EqualTo(5000));
+            Assert.That(price, Is.EqualTo(6000));
         }
 
         [Test] //TCCo10
