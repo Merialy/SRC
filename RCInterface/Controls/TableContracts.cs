@@ -1,13 +1,4 @@
 ﻿using RCLibrary.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RCInterface
 {
@@ -30,7 +21,7 @@ namespace RCInterface
         }
 
         // Обновление данных в таблице
-        private void upDate()
+        private void UpDate()
         {
             contractBindingSource.DataSource = "";
             contract.Serialize();
@@ -39,27 +30,26 @@ namespace RCInterface
             dataGridView1.ClearSelection();
         }
 
-        private void tSButton_Add_Click(object sender, EventArgs e)
+        private void TSButton_Add_Click(object sender, EventArgs e)
         {
-            //new Add_Contract().ShowDialog();
             new Add_Contract().Show();
         }
 
-        private void tSButton_Remove_Click(object sender, EventArgs e)
+        private void TSButton_Remove_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null)
                 MessageBox.Show("Договори відсутні у таблиці!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 manager.RemoveContract(dataGridView1.CurrentRow.Index);
-            upDate();
+            UpDate();
         }
 
-        private void tSButton_Update_Click(object sender, EventArgs e)
+        private void TSButton_Update_Click(object sender, EventArgs e)
         {
-            upDate();
+            UpDate();
         }
 
-        private void textBox_search_KeyUp(object sender, KeyEventArgs e)
+        private void TextBox_search_KeyUp(object sender, KeyEventArgs e)
         {
             if (String.IsNullOrEmpty(textBox_search.Text))
             {

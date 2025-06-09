@@ -1,13 +1,4 @@
 ﻿using RCLibrary.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RCInterface
 {
@@ -41,7 +32,15 @@ namespace RCInterface
         private void tSButton_Remove_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null)
+            {
                 MessageBox.Show("Адміністратори відсутні у таблиці!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var selectedEmail = dataGridView1.CurrentRow.Cells[0].Value?.ToString();
+
+            if (selectedEmail == "root@gmail.com")
+                MessageBox.Show("Цього адміністратора неможливо видалити з таблиці!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 admin.RemoveAdmin(dataGridView1.CurrentRow.Index);
             upDate();

@@ -99,7 +99,7 @@ namespace RCInterface
             tSButton_Update.Size = new Size(23, 22);
             tSButton_Update.Text = "toolStripButton3";
             tSButton_Update.ToolTipText = "Оновити дані у таблиці";
-            tSButton_Update.Click += tSButton_Update_Click;
+            tSButton_Update.Click += TSButton_Update_Click;
             // 
             // toolStripSeparator2
             // 
@@ -115,7 +115,7 @@ namespace RCInterface
             tSButton_Remove.Size = new Size(23, 22);
             tSButton_Remove.Text = "toolStripButton2";
             tSButton_Remove.ToolTipText = "Видалити договір";
-            tSButton_Remove.Click += tSButton_Remove_Click;
+            tSButton_Remove.Click += TSButton_Remove_Click;
             // 
             // toolStripSeparator1
             // 
@@ -126,7 +126,7 @@ namespace RCInterface
             // 
             textBox_search.Name = "textBox_search";
             textBox_search.Size = new Size(100, 25);
-            textBox_search.KeyUp += textBox_search_KeyUp;
+            textBox_search.KeyUp += TextBox_search_KeyUp;
             // 
             // toolStripLabel1
             // 
@@ -152,7 +152,7 @@ namespace RCInterface
             tSButton_Add.Size = new Size(23, 22);
             tSButton_Add.Text = "toolStripButton1";
             tSButton_Add.ToolTipText = "Додати новий договір";
-            tSButton_Add.Click += tSButton_Add_Click;
+            tSButton_Add.Click += TSButton_Add_Click;
             // 
             // idDataGridViewTextBoxColumn
             // 
